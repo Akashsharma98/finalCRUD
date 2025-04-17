@@ -69,8 +69,8 @@ module.exports = {
            
         
     }),
-    getUsers: async (req, res,next) => {
-        try {
+    getUsers: catchAsync(async (req, res,next) => {
+       // try {
             const body = req.body;
             const result = await getUsers();
             return res.json({
@@ -78,13 +78,13 @@ module.exports = {
                 data: result
             });
 
-        } catch (e) {
-            return res.json({
-                success: 1,
-                data: "something wrong"
-            });
-        }
-    },
+        // } catch (e) {
+        //     return res.json({
+        //         success: 1,
+        //         data: "something wrong"
+        //     });
+       // }
+    }),
     //   getUsers((err,results)=>{
     //     if(err){
     //         console.log(err)
